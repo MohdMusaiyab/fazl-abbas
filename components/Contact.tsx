@@ -1,143 +1,99 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Send, Youtube, Twitter, Linkedin, Github, Cpu } from "lucide-react";
+import { Mail, Youtube, Twitter, Linkedin, Github, MapPin } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    subject: "New Project Inquiry",
-    message: "",
-  });
-
-  const handleExport = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoUrl = `mailto:your-email@example.com?subject=${encodeURIComponent(
-      formData.subject + " from " + formData.name
-    )}&body=${encodeURIComponent(formData.message)}`;
-    window.location.href = mailtoUrl;
-  };
-
   return (
-    <section className="relative bg-[#050505] py-32 px-6 md:px-24 overflow-hidden border-t border-white/5">
+    <section id="contact" className="relative bg-[#050505] py-32 px-6 md:px-24 overflow-hidden border-t border-white/5">
       {/* BACKGROUND DECOR */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 text-center">
         
-        {/* LEFT: EXPORT CONFIGURATION (The Form) */}
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          className="bg-white/[0.02] border border-white/10 p-8 rounded-xl backdrop-blur-sm shadow-2xl"
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
         >
-          <div className="flex items-center gap-3 mb-8">
-            <Cpu className="text-red-600" size={20} />
-            <span className="text-[10px] font-mono text-white/40 uppercase tracking-[0.4em]">
-              Module: Render_Settings_v2.0
-            </span>
-          </div>
-
-          <form onSubmit={handleExport} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[9px] font-mono text-white/30 uppercase tracking-widest">Project_Name (Name)</label>
-                <input 
-                  type="text" 
-                  required
-                  placeholder="Untitled_Project"
-                  className="w-full bg-black border border-white/5 p-3 text-sm text-white focus:border-red-600 outline-none transition-colors"
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[9px] font-mono text-white/30 uppercase tracking-widest">Output_Format (Subject)</label>
-                <select 
-                  className="w-full bg-black border border-white/5 p-3 text-sm text-white focus:border-red-600 outline-none transition-colors appearance-none"
-                  onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                >
-                  <option>Commercial_Edit</option>
-                  <option>Narrative_Short</option>
-                  <option>Music_Video</option>
-                  <option>System_Collaboration</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-[9px] font-mono text-white/30 uppercase tracking-widest">Production_Brief (Message)</label>
-              <textarea 
-                rows={5}
-                required
-                placeholder="Enter scene details or project requirements..."
-                className="w-full bg-black border border-white/5 p-4 text-sm text-white focus:border-red-600 outline-none transition-colors resize-none"
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-              />
-            </div>
-
-            <button 
-              type="submit"
-              className="group relative w-full bg-white text-black font-bold py-4 uppercase tracking-[0.3em] text-xs flex items-center justify-center gap-3 overflow-hidden hover:bg-red-600 hover:text-white transition-all duration-300 active:scale-[0.98]"
-            >
-              <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="relative z-10 flex items-center gap-2">
-                Start Export <Send size={14} />
-              </span>
-            </button>
-          </form>
+          <span className="text-red-600 font-mono text-[10px] tracking-[0.5em] uppercase block mb-4">
+            {"//"} Ready_For_Collaboration
+          </span>
+          <h2 className="text-6xl md:text-9xl font-black uppercase italic tracking-tighter text-white mb-8">
+            Get in <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}>Touch</span>
+          </h2>
+          <p className="text-white/40 text-xl md:text-2xl leading-relaxed italic max-w-2xl mx-auto">
+            Available for professional video editing, digital news sequences, and creative productions. Let&apos;s build your narrative.
+          </p>
         </motion.div>
 
-        {/* RIGHT: OUTPUT DESTINATIONS (Socials) */}
-        <div className="flex flex-col justify-between py-4">
-          <div>
-            <span className="text-red-600 font-mono text-[10px] tracking-[0.4em] uppercase block mb-2">
-              {"//"} Output_Destinations
+        {/* EMAIL & PHONE ACTION */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-24 flex flex-col items-center gap-8"
+        >
+          <a 
+            href="mailto:fazlrizvi7860@gmail.com"
+            className="group relative inline-flex items-center gap-6 bg-white px-12 py-6 overflow-hidden transition-all hover:bg-red-600 active:scale-95 w-full md:w-auto mt-4"
+          >
+            <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative z-10 text-xs md:text-sm font-bold uppercase tracking-[0.4em] text-black group-hover:text-white transition-colors duration-300 flex items-center gap-3">
+              fazlrizvi7860@gmail.com <Mail size={18} />
             </span>
-            <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter text-white mb-8">
-              Get in <span className="text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}>Touch</span>
-            </h2>
-            <p className="text-white/40 text-lg leading-relaxed max-w-sm italic">
-              Available for freelance sequences and full-scale productions. Let&apos;s build the narrative together.
-            </p>
-          </div>
+          </a>
 
-          <div className="grid grid-cols-2 gap-4 mt-12">
-            {[
-              { icon: <Twitter size={18} />, label: "X / Twitter", link: "https://x.com/yourhandle" },
-              { icon: <Youtube size={18} />, label: "YouTube", link: "#" },
-              { icon: <Linkedin size={18} />, label: "LinkedIn", link: "#" },
-              { icon: <Github size={18} />, label: "GitHub", link: "#" },
-            ].map((social, i) => (
-              <a 
-                key={i}
-                href={social.link}
-                target="_blank"
-                className="group p-4 border border-white/5 bg-white/[0.01] hover:bg-white/5 hover:border-white/20 transition-all flex items-center gap-4"
-              >
-                <div className="text-white/40 group-hover:text-red-600 transition-colors">
-                  {social.icon}
-                </div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
-                  {social.label}
-                </span>
-              </a>
-            ))}
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-[10px] font-mono text-white/20 uppercase tracking-[0.4em]">Direct_Dial</span>
+            <a href="tel:+917505997401" className="text-2xl md:text-4xl font-black text-white hover:text-red-600 transition-colors tracking-tighter">
+              +91 7505997401
+            </a>
           </div>
+        </motion.div>
 
-          <div className="mt-16 pt-8 border-t border-white/5 flex flex-col gap-1">
-            <span className="text-[8px] font-mono text-white/20 uppercase tracking-[0.4em]">Current_Location</span>
-            <span className="text-xs text-white/60 font-medium">Mysuru, Karnataka, India // 12.2958° N, 76.6394° E</span>
+        {/* SOCIAL LINKS GRID */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
+          {[
+            { icon: <Twitter size={20} />, label: "Twitter", link: "#" },
+            { icon: <Youtube size={20} />, label: "YouTube", link: "#" },
+            { icon: <Linkedin size={20} />, label: "LinkedIn", link: "https://www.linkedin.com/in/fazl-abbas-8601122a9/" },
+            { icon: <Github size={20} />, label: "GitHub", link: "#" },
+          ].map((social, i) => (
+            <motion.a 
+              key={i}
+              href={social.link}
+              target="_blank"
+              whileHover={{ y: -5 }}
+              className="group p-6 border border-white/5 bg-white/[0.01] hover:bg-white/[0.05] hover:border-white/20 transition-all flex flex-col items-center gap-4"
+            >
+              <div className="text-white/20 group-hover:text-red-600 transition-colors duration-300">
+                {social.icon}
+              </div>
+              <span className="text-[9px] font-mono uppercase tracking-widest text-white/30 group-hover:text-white transition-colors duration-300">
+                {social.label}
+              </span>
+            </motion.a>
+          ))}
+        </div>
+
+        {/* LOCATION & FOOTER INFO */}
+        <div className="flex flex-col items-center gap-6 pt-16 border-t border-white/5">
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-[10px] font-mono text-white/20 uppercase tracking-[0.5em] flex items-center gap-2 mb-2">
+              <MapPin size={12} className="text-red-600" /> Current_Base
+            </span>
+            <span className="text-sm md:text-base text-white/80 font-medium tracking-tight">
+              New Delhi, India // <span className="text-white/30">Available Worldwide</span>
+            </span>
           </div>
         </div>
       </div>
 
-      {/* FOOTER LABEL */}
-      <div className="mt-32 text-center">
-        <span className="text-[15vw] font-black text-white/[0.02] uppercase leading-none select-none pointer-events-none italic">
-          Deliverable
-        </span>
-      </div>
     </section>
   );
 };

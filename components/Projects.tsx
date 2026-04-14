@@ -40,14 +40,14 @@ const Projects = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <section className="bg-[#050505] py-24 px-6 md:px-24">
+    <section id="projects" className="bg-[#050505] py-24 px-6 md:px-24">
       {/* SECTION HEADER */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
         <div>
           <span className="text-red-600 font-mono text-[10px] tracking-[0.4em] uppercase">
             BIN_01_SELECTED_CUTS
           </span>
-          <h2 className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase italic tracking-tighter text-white">
             Media <span className="text-transparent stroke-white" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}>Pool</span>
           </h2>
         </div>

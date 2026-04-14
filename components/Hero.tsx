@@ -43,6 +43,7 @@ export default function Hero() {
 
   return (
     <section
+      id="home"
       ref={containerRef}
       className="relative h-screen w-full overflow-hidden bg-[#050505] text-white flex items-center justify-center"
     >
@@ -92,15 +93,15 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          <h1 className="text-[15vw] md:text-[10vw] font-black leading-[0.75] tracking-tighter uppercase italic flex flex-col items-center">
-            <span className="block translate-x-[-5%]">CUT.</span>
+          <h1 className="text-[13vw] md:text-[10vw] font-black leading-[0.75] tracking-tighter uppercase italic flex flex-col items-center">
+            <span className="block translate-x-[-5%] md:translate-x-[-10%]">CUT.</span>
             <span
-              className="block text-transparent opacity-50"
-              style={{ WebkitTextStroke: "1px white" }}
+              className="block text-transparent opacity-100"
+              style={{ WebkitTextStroke: "2px rgba(255,255,255,0.6)" }}
             >
               EDIT.
             </span>
-            <span className="block translate-x-[5%] underline decoration-red-600 decoration-[8px] underline-offset-8">
+            <span className="block translate-x-[5%] md:translate-x-[10%] underline decoration-red-600 decoration-[4px] md:decoration-[8px] underline-offset-[8px] md:underline-offset-[12px]">
               CREATE.
             </span>
           </h1>
@@ -109,29 +110,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="mt-12 text-sm md:text-base text-white/50 max-w-md font-light tracking-[0.1em] leading-relaxed uppercase"
+            className="mt-16 text-xs md:text-sm text-white/50 max-w-lg font-light tracking-[0.05em] leading-relaxed uppercase"
           >
-            Symmetry in motion. Precision in rhythm. <br />
-            <span className="text-white font-medium">
-              Independent Film & Commercial Editor
-            </span>
+            Hello, I&apos;m <span className="text-white font-medium">Fazl Abbas Rizvi</span>. <br />
+            Creative Video Editor crafting high-impact content for social media, YouTube, and brands. <br />
+            Expert in storytelling, motion graphics, and cinematic pacing.
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="mt-10 flex flex-col md:flex-row items-center gap-8"
-          >
-            <button className="group relative bg-white px-12 py-4 overflow-hidden transition-transform hover:scale-105 active:scale-95">
-              <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.2em] text-black">
-                Play Showreel
-              </span>
-            </button>
-            <button className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors border-b border-transparent hover:border-white/20 pb-1">
-              Contact Producer
-            </button>
-          </motion.div>
         </motion.div>
       </div>
 
